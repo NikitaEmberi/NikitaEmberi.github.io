@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Single Page Apps for GitHub Pages</title>
+    <script type="text/javascript">
+      // Check if the URL includes '/home'
+      var l = window.location;
+      var pathSegmentsToKeep = 0;
+
+      // Adjust base path to include /home
+      var base = "/home";
+      var newUrl =
+        l.protocol +
+        "//" +
+        l.hostname +
+        (l.port ? ":" + l.port : "") +
+        base +
+        l.pathname
+          .slice(1)
+          .split("/")
+          .slice(pathSegmentsToKeep)
+          .join("/")
+          .replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash;
+
+      // If the current path does not start with /home, redirect to the adjusted URL
+      if (!l.pathname.startsWith(base)) {
+        window.location.replace(newUrl);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
